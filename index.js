@@ -1,6 +1,8 @@
 
 const cors = require('cors');
 require('dotenv').config();
+const bodyParser = require('body-parser');
+
 
 //1 
 const express = require('express');
@@ -14,12 +16,9 @@ const { noteRouter } = require('./Routes/note.routes');
 const app = express();
 
 app.use(express.json())
+app.use(express.static('public'));
  app.use(cors())
-//  app.use(cors({
-//     origin: 'http://localhost:3000',
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true, 
-//   }));
+
   
 
 app.use("/users",userRouter)
