@@ -25,13 +25,6 @@ app.use("/users",userRouter)
 app.use("/notes",noteRouter)
 
 
-
-
-// app.get('/', (req, res) => {
-//     res.send('Welcome To Notes App page');
-//   });
-
-
   const PORT = process.env.PORT || 3000;
 
     async function startServer() {
