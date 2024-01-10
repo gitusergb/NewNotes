@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {NoteModel}= require('../Models/note.model');
 
+
+//post
 const createNote = async (req, res) => {
   try { 
 const note = new NoteModel(req.body)
@@ -11,6 +13,9 @@ res.status(200).json({ msg:'A new note has been Created',Note:note});
     res.status(400).json({ error: error.message });
   }
 };
+
+
+//get
 const seeNote =async( req ,res)=>{
     try { 
         const notes = await NoteModel.find({userID:req.body.userID})
@@ -21,6 +26,8 @@ const seeNote =async( req ,res)=>{
 
 }
 
+
+//update/patch
 const updateNote =async(req ,res)=>{
 const {noteID}=req.params
     try { 
@@ -37,6 +44,8 @@ const {noteID}=req.params
 
 }
 
+
+//delete
 const deleteNote =async(req ,res)=>{
     const {noteID}=req.params
         try { 

@@ -25,24 +25,25 @@ app.use(express.json())
 app.use("/users",userRouter)
 app.use("/notes",noteRouter)
 
-app.get('/', (req, res) => {
-    res.send('Welcome To Notes App page');
-  });
+// app.get('/', (req, res) => {
+//     res.send('Welcome To Notes App page');
+//   });
 
 
   const PORT = process.env.PORT || 3000;
-  //3
-  app.listen(PORT,async()=> {
-    try {
-        //8
-        await connection
-        console.log("Database connection Established")
-        console.log(`Server is running at http://localhost:${PORT}`);
-    }
-    catch {
-        console.log("Database connection Failed")
-    }
-    console.log("Server Started")
-    })
 
-   
+    async function startServer() {
+        try {
+          await connection;
+          console.log("Database connection Established");
+        } catch {
+          console.log("Database connection Failed");
+        }
+      
+        app.listen(PORT,() => {
+          console.log(`Server is running at http://localhost:${PORT}`);
+          console.log("Server Started");
+        });
+      }
+      
+      startServer();

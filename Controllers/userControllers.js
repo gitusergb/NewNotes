@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {UserModel}= require('../Models/user.model');
 
+
 const registerUser = async (req, res) => {
     const {username,email,password}=req.body
  
@@ -39,15 +40,15 @@ const loginUser = async(req, res) => {
   }
 };
 
-// const logoutUser = async (req, res) => {
-//   try {
-//     req.user.tokens = req.user.tokens.filter((token) => token.token !== req.token);
-//     await req.user.save();
 
-//     res.status(200).json({ msg: 'User has been logged out' });
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// };, loginUser, logoutUser 
+// GET /users/logout
+const logoutUser = async (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  try {
+    res.status(200).json({ msg: 'User has been logged out' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
-module.exports = {registerUser,loginUser};
+module.exports = {registerUser,loginUser, logoutUser };

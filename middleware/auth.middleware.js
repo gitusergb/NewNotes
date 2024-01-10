@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const authMiddleware =(req, res, next) => {
+const auth =(req, res, next) => {
  
    const token = req.headers.authorization?.split(" ")[1];
    if(token){
@@ -15,9 +15,9 @@ const authMiddleware =(req, res, next) => {
         }
     });
    }else{
-             res.send({ msg:"You are not Authorised"})
+             res.send({ msg:"Please Login!"})
     }
 };
 
 
-module.exports = {authMiddleware};
+module.exports = {auth};
