@@ -25,6 +25,9 @@ app.use(express.json())
 app.use("/users",userRouter)
 app.use("/notes",noteRouter)
 
+
+
+
 // app.get('/', (req, res) => {
 //     res.send('Welcome To Notes App page');
 //   });
