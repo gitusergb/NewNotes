@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,48 @@
     />
     <link rel="apple-touch-icon" href="https://i.ibb.co/SK6n1jM/style.png" />
     <title>Notes app server</title>
+    <style>
+            #outer{
+                height: 650px;
+              background-image: url(https://marketplace.canva.com/EAFQ4d2ZFLw/1/0/1600w/canva-black-minimalist-aesthetic-desktop-wallpaper-SCSpYHNmCB0.jpg);  
+             background-size: cover;
+             border-radius: 10px;
+             background-position: center;
+             display: flex;
+             align-items: center;
+             justify-content:center;
+            }
+            #inner{
+                    color: white;
+                    margin: 0px 0px 0px 150px;
+                    height: 400px;
+                    width: 320px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content:center;
+                    border-radius: 10px;
+                    background-color: rgba(255, 255, 255, 0.096);
+                    backdrop-filter: blur(10px);
+            }
+            nav{
+                display: flex;
+                 gap: 30px;
+              
+            }
+
+    </style>
 </head>
 <body>
-    <div >
-        <h1>Admin Page</h1>
-        <a href="#">users</a>
-        <a href="#">notes</a>
+    <div id="outer">
+        <div id="inner" >
+            <h1>Admin Page</h1>
+            <nav>
+                <a href="#">users</a>
+                <a href="#">notes</a>
+            </nav>
+          
+        </div>
     </div>
 </body>
 </html>
