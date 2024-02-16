@@ -26,7 +26,18 @@ const seeNote =async( req ,res)=>{
 
 }
 
+//get_note_by_id
+const IdgetNote =async( req ,res)=>{
+  const {noteID}=req.params
+    try { 
+        const note = await NoteModel.findOne({_id:noteID})
+        if(req.body.userID===note.userID){
+          res.status(200).send(note);}
+        } catch (error) {
+          res.status(400).send({ error: error.message });
+        }
 
+}
 //update/patch
 const updateNote =async(req ,res)=>{
 const {noteID}=req.params
@@ -62,4 +73,4 @@ const deleteNote =async(req ,res)=>{
     
     }
 
-module.exports = {createNote,seeNote,updateNote,deleteNote};
+module.exports = {createNote,seeNote,IdgetNote,updateNote,deleteNote};
